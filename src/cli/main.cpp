@@ -27,6 +27,7 @@ int main(const int argc, const char** argv) {
                                                          "other non-zero code in case of errors."},
         {"overwriteOldFile", {"-O", "--overwrite"}, "Overwrite existing file. If not specified, a new file will be created, and the old one will remain untouched."},
         {"removeOldFile", {"-r", "--remove-old"}, "Remove old AppImage after successful update."},
+        {"updateInfo", {"-u", "--update-info"}, "Manually set update information."},
         {"selfUpdate", {"--self-update"}, "Update this AppImage."},
     }};
 
@@ -49,7 +50,7 @@ int main(const int argc, const char** argv) {
         showUsage();
         return EXIT_SUCCESS;
     }
-
+    
     if (args["version"]) {
         cerr << "appimageupdatetool version " << APPIMAGEUPDATE_VERSION
              << " (commit " << APPIMAGEUPDATE_GIT_COMMIT << "), "
@@ -106,6 +107,10 @@ int main(const int argc, const char** argv) {
 
     Updater updater(pathToAppImage.value(), args["overwriteOldFile"]);
 
+    if (args["updateInfo"]) {
+        updateer.setUpdateInformation(args["updateInfo"]);
+    }
+    
     // if the user just wants a description of the AppImage, parse the AppImage, print the description and exit
     if (args["describe"]) {
         string description;
