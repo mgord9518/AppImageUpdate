@@ -108,7 +108,7 @@ int main(const int argc, const char** argv) {
     Updater updater(pathToAppImage.value(), args["overwriteOldFile"]);
 
     if (args["updateInfo"]) {
-        updateer.setUpdateInformation(args["updateInfo"]);
+        updater.setUpdateInformation(args["updateInfo"]);
     }
     
     // if the user just wants a description of the AppImage, parse the AppImage, print the description and exit
