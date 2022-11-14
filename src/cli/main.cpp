@@ -27,8 +27,8 @@ int main(const int argc, const char** argv) {
                                                          "other non-zero code in case of errors."},
         {"overwriteOldFile", {"-O", "--overwrite"}, "Overwrite existing file. If not specified, a new file will be created, and the old one will remain untouched."},
         {"removeOldFile", {"-r", "--remove-old"}, "Remove old AppImage after successful update."},
-        {"selfUpdate", {"--self-update"}, "Update this AppImage."},
         {"updateInfo", {"-u", "--update-info"}, "Manually set update information.", 1},
+        {"selfUpdate", {"--self-update"}, "Update this AppImage."},
     }};
 
     argagg::parser_results args;
